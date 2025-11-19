@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Job Center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="job-center" class="job-center hidden">
+        <div class="jc-header">
+            <div class="jc-logo">
+                <span class="jc-logo-badge jc-logo-badge-job">JOB</span>
+                <span class="jc-logo-badge jc-logo-badge-center">CENTER</span>
+            </div>
+            <div class="jc-player">
+                <div class="jc-player-name">
+                    <span class="jc-player-label">Welcome,</span>
+                    <span class="jc-player-value" id="player-name">Citizen</span>
+                </div>
+                <div class="jc-player-job">
+                    Current job:
+                    <span id="player-job" class="jc-player-job-value">Unemployed</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="jc-main">
+            <div class="jc-sidebar">
+                <div class="jc-filter">
+                    <div class="jc-filter-field">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input id="job-search" type="text" placeholder="Search jobs..." autocomplete="off" />
+                    </div>
+                    <div class="jc-filter-field select">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <select id="job-category-filter">
+                            <option value="">All categories</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="jc-list" id="job-list">
+                </div>
+            </div>
+
+            <div class="jc-details" id="job-details">
+                <div class="job-details-empty">
+                    <h2>Select a job on the left</h2>
+                    <p>Browse through available careers in Los Santos and pick the one that fits your style.</p>
+                    <div class="job-details-hint">
+                        <i class="fa-solid fa-mouse-pointer"></i>
+                        Click on any job card to see its details.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="jc-footer">
+            <div class="jc-footer-left">
+                <button id="btn-apply" class="jc-btn jc-btn-primary">
+                    <i class="fa-solid fa-briefcase"></i>
+                    Apply for job
+                </button>
+                <button id="btn-close" class="jc-btn jc-btn-ghost">
+                    <i class="fa-solid fa-xmark"></i>
+                    Close
+                </button>
+            </div>
+            <div class="jc-footer-right">
+                <span class="jc-hint-key">/jobcenter</span>
+                <span class="jc-hint-text">Type in chat to open this menu</span>
+            </div>
+        </div>
+
+        <div id="jc-toast" class="jc-toast hidden">
+            <span id="jc-toast-icon" class="jc-toast-icon"><i class="fa-solid fa-circle-info"></i></span>
+            <span id="jc-toast-text" class="jc-toast-text">Notification</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
