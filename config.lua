@@ -93,9 +93,24 @@ Config.Jobs = {
             'Assist other emergency services'
         }
     },
+
+        {
+        id = 'gopostal',
+        label = 'gopostal',
+        category = 'GoPostal Services',
+        description = 'Protect and serve the people of Los Santos. Respond to calls, chase suspects, and keep the streets safe.',
+        icon = 'fa-shield-halved',
+        color = '#84ff00ff',
+        salary = 750,
+        duties = {
+            'Respond to 911 calls',
+            'Conduct traffic stops and patrol',
+            'Assist other emergency services'
+        }
+    },
     {
         id = 'ems',
-        label = 'Paramedic',
+        label = 'ems',
         category = 'Emergency Services',
         description = 'Race against time to save lives. Stabilize patients, transport to hospital, and support police & fire.',
         icon = 'fa-heart-pulse',
@@ -107,6 +122,22 @@ Config.Jobs = {
             'Support fire and police operations'
         }
     },
+{
+    id = 'fire',
+    label = 'fire',
+    category = 'Emergency Services',
+    description = 'Answer the alarm and protect the city. Suppress structure & vehicle fires, perform rescue operations, and support EMS & police during major incidents.',
+    icon = 'fa-fire-extinguisher',
+    color = '#ff6a00',
+    salary = 700,
+    duties = {
+        'Respond to fire and rescue callouts',
+        'Suppress structure, vehicle, and wildland fires',
+        'Conduct search & rescue and ventilation',
+        'Provide scene safety and support EMS & police'
+    }
+},
+
     {
         id = 'mechanic',
         label = 'Mechanic',
@@ -148,5 +179,83 @@ Config.Jobs = {
             'Deliver on time and undamaged',
             'Respect road safety and traffic'
         }
+    },
+    -- ✅ Replace your current GoPostal block with this:
+{
+    id = 'gopostal',
+    label = 'GoPostal Courier',
+    category = 'Logistics',
+    description = 'Deliver mail across San Andreas. Hit mailbox stops, stay on route, and get paid per delivery.',
+    icon = 'fa-envelopes-bulk',
+    color = '#84ff00',
+    salary = 520,
+    duties = {
+        'Start a delivery route',
+        'Drop mail at marked mailboxes',
+        'Get paid per successful stop'
     }
+},
+
+-- ✅ Add these NEW jobs:
+
+{
+    id = 'miner',
+    label = 'Quarry Miner',
+    category = 'Industry',
+    description = 'Work the quarry and collect minerals. Store them in your minerals bag and sell for cash.',
+    icon = 'fa-hammer',
+    color = '#9aa4ad',
+    salary = 560,
+    duties = {
+        'Mine at the quarry locations',
+        'Collect minerals into your bag',
+        'Sell minerals at the sell point'
+    }
+},
+
+{
+    id = 'farmer',
+    label = 'Grapeseed Farmer',
+    category = 'Agriculture',
+    description = 'Harvest crops around Grapeseed, fill your produce bag, and sell your haul for profit.',
+    icon = 'fa-seedling',
+    color = '#6dce5b',
+    salary = 540,
+    duties = {
+        'Harvest at field locations',
+        'Collect produce into your bag',
+        'Sell produce at the sell point'
+    }
+},
+
+{
+    id = 'hunter',
+    label = 'Hunter',
+    category = 'Outdoors',
+    description = 'Hunt wildlife for rewards. Each kill gives a randomized size/weight payout with an animal image popup.',
+    icon = 'fa-crosshairs',
+    color = '#ff6a00',
+    salary = 0,
+    duties = {
+        'Track and hunt wildlife',
+        'Earn randomized rewards per kill',
+        'Receive a reward popup with animal info'
+    }
+},
+
+{
+    id = 'moneytruck',
+    label = 'Money Transport (Gruppe6)',
+    category = 'Security',
+    description = 'Transport cash bank-to-bank in an armored truck. Your truck is visible to everyone — expect attacks.',
+    icon = 'fa-shield',
+    color = '#ff3b3b',
+    salary = 780,
+    duties = {
+        'Drive the armored truck to each bank stop',
+        'Pickup / drop-off cash at locations',
+        'Stay alert: other players can track you'
+    }
+}
+
 }
