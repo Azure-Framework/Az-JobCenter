@@ -137,6 +137,28 @@ body {
     margin-bottom: 10px;
 }
 
+.jc-main {
+  min-height: 0;
+}
+
+.jc-sidebar,
+.jc-details {
+  min-height: 0;
+}
+
+.jc-list {
+  min-height: 0;
+  overflow-y: auto; /* you already have this, keep it */
+}
+
+.jc-details-body {
+  min-height: 0;
+}
+
+.jc-details-duties-list {
+  min-height: 0;
+}
+
 .jc-sidebar {
     background: radial-gradient(circle at top, rgba(7, 16, 29, 0.96), rgba(5, 10, 18, 0.98));
     border-radius: 14px;
