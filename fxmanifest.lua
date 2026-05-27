@@ -12,8 +12,6 @@ files {
     'html/index.html',
     'html/style.css',
     'html/script.js',
-    'html/img/*.png',
-    'html/img/*.jpg',
 }
 
 shared_script 'config.lua'
