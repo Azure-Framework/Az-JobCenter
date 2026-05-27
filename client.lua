@@ -1,16 +1,16 @@
 local isOpen = false
 
--- Name of the resource that has the HUD refresh export
+
 local HUD_RES = 'Az-Framework'
 
--- Make sure Config exists client-side
+
 Config = Config or {}
 
--- ===== HUD REFRESH EXPORT WRAPPER =====
+
 local function safeRefreshHUD()
     local ok, err = pcall(function()
         exports[HUD_RES]:refreshHUD()
-        -- exports[HUD_RES]:updateHUD()
+        
     end)
 
     if not ok then
@@ -20,7 +20,7 @@ local function safeRefreshHUD()
     end
 end
 
--- ===== JOB CENTER UI OPEN =====
+
 local function openJobCenter(payload)
     isOpen = true
     SetNuiFocus(true, true)
@@ -32,7 +32,7 @@ local function openJobCenter(payload)
     })
 end
 
--- Command to open job center (fallback / debug)
+
 RegisterCommand('jobcenter', function()
     if isOpen then return end
     TriggerServerEvent('az_jobcenter:open')
@@ -93,9 +93,9 @@ AddEventHandler('onResourceStop', function(res)
     end
 end)
 
--- =========================================================
--- =               JOB CENTER NPC / BLIPS / TEXT UI       =
--- =========================================================
+
+
+
 
 local spawnedNPCs = {}
 local textUIActiveFor = nil
@@ -126,8 +126,8 @@ end
 local function createJobCenterBlip(npcConfig, coords)
     if not Config.EnableJobCenterBlips then return end
 
-    local sprite = npcConfig.blipSprite or (Config.JobCenterBlip and Config.JobCenterBlip.sprite) or 407 -- briefcase-ish
-    local colour = npcConfig.blipColour or (Config.JobCenterBlip and Config.JobCenterBlip.color) or 3   -- light blue
+    local sprite = npcConfig.blipSprite or (Config.JobCenterBlip and Config.JobCenterBlip.sprite) or 407 
+    local colour = npcConfig.blipColour or (Config.JobCenterBlip and Config.JobCenterBlip.color) or 3   
     local scale  = npcConfig.blipScale  or (Config.JobCenterBlip and Config.JobCenterBlip.scale) or 0.9
 
     local blip = AddBlipForCoord(coords.x, coords.y, coords.z)
@@ -164,7 +164,7 @@ local function spawnJobCenterNPCs()
                 local heading = data.heading or 0.0
 
                 local ped = CreatePed(
-                    4,                    -- CIVMALE
+                    4,                    
                     model,
                     coords.x, coords.y, coords.z - 1.0,
                     heading,
@@ -229,7 +229,7 @@ local function handleNPCInteractionLoop()
                 if closestData and closestDist and closestDist < (closestData.interactDistance or 2.0) then
                     sleep = 0
 
-                    -- Only try to use TextUI if ox_lib is ready
+                    
                     if lib and lib.showTextUI and lib.hideTextUI then
                         if textUIActiveFor ~= closestData then
                             textUIActiveFor = closestData
@@ -250,7 +250,7 @@ local function handleNPCInteractionLoop()
                             })
                         end
                     else
-                        -- Fallback debug: simple 3D marker if lib isn't ready
+                        
                         DrawMarker(2, closestData.coords.x, closestData.coords.y, closestData.coords.z + 1.0,
                             0.0, 0.0, 0.0,
                             0.0, 0.0, 0.0,
@@ -258,8 +258,8 @@ local function handleNPCInteractionLoop()
                             0, 150, 255, 180, false, true, 2, nil, nil, false)
                     end
 
-                    -- Press E to open Job Center
-                    if IsControlJustReleased(0, 38) then -- E
+                    
+                    if IsControlJustReleased(0, 38) then 
                         if not isOpen then
                             TriggerServerEvent('az_jobcenter:open')
                         end

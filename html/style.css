@@ -148,7 +148,7 @@ body {
 
 .jc-list {
   min-height: 0;
-  overflow-y: auto; /* you already have this, keep it */
+  overflow-y: auto; 
 }
 
 .jc-details-body {

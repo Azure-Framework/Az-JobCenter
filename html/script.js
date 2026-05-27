@@ -1,5 +1,5 @@
 (function () {
-    const resourceName = 'az-jobcenter'; // must match your resource folder name
+    const resourceName = 'az-jobcenter';
 
     const root = document.getElementById('job-center');
     const listEl = document.getElementById('job-list');
@@ -242,7 +242,7 @@
                 body: JSON.stringify(data || {}),
             }).catch(() => {});
         } catch (e) {
-            // ignore
+
         }
     }
 

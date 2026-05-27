@@ -1,7 +1,7 @@
 local LastChange = {}
 local DEBUG = false
 
--- Az-Framework exports handle
+
 local fw = exports['Az-Framework']
 
 local function dbg(...)
@@ -13,9 +13,9 @@ local function dbg(...)
     print("[az-jobcenter]", table.concat(parts, " "))
 end
 
---- Resolve which value to use in the WHERE clause for user_characters.charid
---- By default this tries Az-Framework's GetPlayerCharacter export, which in your logs
---- returns the current charid as a string (e.g. 17526937318528).
+
+
+
 local function getDBKeyForPlayer(src)
     if Config.UseAzFrameworkCharacter then
         local ok, charId = pcall(function()
@@ -29,7 +29,7 @@ local function getDBKeyForPlayer(src)
         end
     end
 
-    -- Fallback: use first identifier if you ever swap Config.DB.identifierColumn
+    
     local identifiers = GetPlayerIdentifiers(src)
     if not identifiers or #identifiers == 0 then
         dbg("No identifiers for src", src)
@@ -66,7 +66,7 @@ local function buildOpenPayload(src, currentJobId)
     }
 end
 
--- Open Job Center (called from client when /jobcenter is used)
+
 RegisterNetEvent('az_jobcenter:open', function()
     local src = source
     local key = getDBKeyForPlayer(src)
@@ -96,12 +96,12 @@ RegisterNetEvent('az_jobcenter:open', function()
     end)
 end)
 
--- Apply for a job
+
 RegisterNetEvent('az_jobcenter:applyJob', function(jobId)
     local src = source
 
     if type(jobId) ~= 'string' then return end
-    jobId = jobId:match('^%s*(.-)%s*$') -- trim spaces
+    jobId = jobId:match('^%s*(.-)%s*$') 
 
     local chosenJob = getJobById(jobId)
     if not chosenJob then
@@ -115,7 +115,7 @@ RegisterNetEvent('az_jobcenter:applyJob', function(jobId)
         return
     end
 
-    -- Cooldown check
+    
     if Config.JobChangeCooldown and Config.JobChangeCooldown > 0 then
         local now = os.time()
         local last = LastChange[key] or 0
@@ -153,10 +153,10 @@ RegisterNetEvent('az_jobcenter:applyJob', function(jobId)
         TriggerClientEvent('az_jobcenter:notify', src, msg, 'success')
         TriggerClientEvent('az_jobcenter:updateCurrentJob', src, jobId, chosenJob.label)
 
-        -- Optional: update your own framework job record here
-        -- exports['Az-Framework']:SetPlayerJob(src, jobId)
+        
+        
 
-        -- 🔄 After doing custom DB work, ping Az-Framework to refresh HUD / money UI
+        
         local ok, err = pcall(function()
             dbg("Calling fw:sendMoneyToClient for src", src)
             fw:sendMoneyToClient(src)

@@ -1,31 +1,31 @@
 Config = {}
 
--- Database mapping: adjust to match your schema
+
 Config.DB = {
-    table            = 'user_characters',   -- your character table
-    identifierColumn = 'charid',            -- we look up by current character id
-    jobColumn        = 'active_department'  -- this is what gets updated
+    table            = 'user_characters',   
+    identifierColumn = 'charid',            
+    jobColumn        = 'active_department'  
 }
 Config.UseAzFrameworkCharacter = true
 
--- Cooldown between job changes (seconds). Set to 0 to disable.
-Config.JobChangeCooldown = 300 -- 5 minutes
+
+Config.JobChangeCooldown = 300 
 
 
--- Enable / disable world NPC access points for the Job Center
+
 Config.EnableJobCenterNPCs = true
 
--- Show blips for Job Center NPCs on the map
+
 Config.EnableJobCenterBlips = true
 
--- Default blip settings (can be overridden per-NPC)
+
 Config.JobCenterBlip = {
-    sprite = 407,   -- briefcase / business-style icon
-    color  = 3,     -- light blue
+    sprite = 407,   
+    color  = 3,     
     scale  = 0.9
 }
 
--- NPC locations for Job Center (clipboard animation + E to open)
+
 Config.JobCenterNPCs = {
     {
         enabled = true,
@@ -45,7 +45,7 @@ Config.JobCenterNPCs = {
         enabled = true,
         label = "Job Center - Paleto Bay",
         model = "cs_bankman",
-        coords = vec3(-276.12, 6230.72, 31.70), -- Paleto
+        coords = vec3(-276.12, 6230.72, 31.70), 
         heading = 135.0,
         interactDistance = 2.0,
         icon = "briefcase"
@@ -54,7 +54,7 @@ Config.JobCenterNPCs = {
         enabled = true,
         label = "Job Center - Los Santos",
         model = "cs_bankman",
-        coords = vec3(-265.0, -963.6, 31.22), -- LS city area (near job center-ish)
+        coords = vec3(-265.0, -963.6, 31.22), 
         heading = 205.0,
         interactDistance = 2.0,
         icon = "briefcase"
@@ -63,12 +63,26 @@ Config.JobCenterNPCs = {
 
 
 
--- GTA-style job definitions
+
 Config.Jobs = {
     {
         id = 'unemployed',
         label = 'Unemployed',
         category = 'Civilian',
+        description = 'Take your time to explore Los Santos, pick up side gigs, and decide your future career.',
+        icon = 'fa-user',
+        color = '#b0bec5',
+        salary = 0,
+        duties = {
+            'Free roam the city',
+            'No fixed responsibilities',
+            'Try out activities before committing'
+        }
+    },
+    {
+        id = 'amazon',
+        label = 'amazon',
+        category = 'amazon',
         description = 'Take your time to explore Los Santos, pick up side gigs, and decide your future career.',
         icon = 'fa-user',
         color = '#b0bec5',
@@ -93,6 +107,37 @@ Config.Jobs = {
             'Assist other emergency services'
         }
     },
+
+    {
+        id = 'bcso',
+        label = 'Blaine County Sheriff Office.',
+        category = 'Emergency Services',
+        description = 'Protect and serve the people of Blaine County. Respond to calls, chase suspects, and keep the county safe.',
+        icon = 'fa-shield-halved',
+        color = '#0e6124',
+        salary = 750,
+        duties = {
+            'Respond to 911 calls',
+            'Conduct traffic stops and patrol',
+            'Assist other emergency services'
+        }
+    },
+
+    {
+        id = 'ranger',
+        label = 'U.S. Park Ranger',
+        category = 'Emergency Services',
+        description = 'Protect the forests, parks, and wildlife of Blaine County. Patrol protected lands, enforce park regulations, assist stranded visitors, and respond to emergencies in remote areas.',
+        icon = 'fa-tree',
+        color = '#0e6124',
+        salary = 750,
+        duties = {
+            'Patrol parks, trails, and protected areas',
+            'Respond to wildlife, rescue, and emergency calls',
+            'Enforce park rules, hunting, and conservation laws'
+        }
+    },
+
 
         {
         id = 'gopostal',
@@ -180,7 +225,7 @@ Config.Jobs = {
             'Respect road safety and traffic'
         }
     },
-    -- ✅ Replace your current GoPostal block with this:
+    
 {
     id = 'gopostal',
     label = 'GoPostal Courier',
@@ -196,7 +241,7 @@ Config.Jobs = {
     }
 },
 
--- ✅ Add these NEW jobs:
+
 
 {
     id = 'miner',

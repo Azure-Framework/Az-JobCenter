@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 name 'az-jobcenter'
-author 'Azure(TheStoicBear)'
+author 'MadebyAzure'
 description 'GTA-style Job Center NUI – updates job via MySQL'
 version '1.0.0'
 
